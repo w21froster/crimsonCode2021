@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{28b4f180-c5c5-4bb9-92cf-c4e9a7a8f9e5}</ProjectGuid>
+    <RootNamespace>TestPort</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)libraries;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)libraries\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)libraries\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="libraries\boost\asio.hpp" />
+    <ClInclude Include="libraries\boost\asio\any_io_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\associated_allocator.hpp" />
+    <ClInclude Include="libraries\boost\asio\associated_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\async_result.hpp" />
+    <ClInclude Include="libraries\boost\asio\awaitable.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_datagram_socket.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_deadline_timer.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_io_object.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_raw_socket.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_seq_packet_socket.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_serial_port.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_signal_set.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_socket.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_socket_acceptor.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_socket_iostream.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_socket_streambuf.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_streambuf.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_streambuf_fwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_stream_socket.hpp" />
+    <ClInclude Include="libraries\boost\asio\basic_waitable_timer.hpp" />
+    <ClInclude Include="libraries\boost\asio\bind_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\buffer.hpp" />
+    <ClInclude Include="libraries\boost\asio\buffered_read_stream.hpp" />
+    <ClInclude Include="libraries\boost\asio\buffered_read_stream_fwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\buffered_stream.hpp" />
+    <ClInclude Include="libraries\boost\asio\buffered_stream_fwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\buffered_write_stream.hpp" />
+    <ClInclude Include="libraries\boost\asio\buffered_write_stream_fwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\buffers_iterator.hpp" />
+    <ClInclude Include="libraries\boost\asio\completion_condition.hpp" />
+    <ClInclude Include="libraries\boost\asio\compose.hpp" />
+    <ClInclude Include="libraries\boost\asio\connect.hpp" />
+    <ClInclude Include="libraries\boost\asio\coroutine.hpp" />
+    <ClInclude Include="libraries\boost\asio\co_spawn.hpp" />
+    <ClInclude Include="libraries\boost\asio\datagram_socket_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\deadline_timer.hpp" />
+    <ClInclude Include="libraries\boost\asio\deadline_timer_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\defer.hpp" />
+    <ClInclude Include="libraries\boost\asio\detached.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\array.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\array_fwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\assert.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\atomic_count.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\base_from_completion_cond.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\bind_handler.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\blocking_executor_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\buffered_stream_storage.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\buffer_resize_guard.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\buffer_sequence_adapter.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\bulk_executor_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\call_stack.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\chrono.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\chrono_time_traits.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\completion_handler.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\concurrency_hint.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\conditionally_enabled_event.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\conditionally_enabled_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\config.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\consuming_buffers.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\cstddef.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\cstdint.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\date_time_fwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\deadline_timer_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\dependent_type.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\descriptor_ops.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\descriptor_read_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\descriptor_write_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\dev_poll_reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\epoll_reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\event.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\eventfd_select_interrupter.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\executor_function.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\executor_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\fd_set_adapter.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\functional.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\future.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\gcc_arm_fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\gcc_hppa_fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\gcc_sync_fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\gcc_x86_fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\global.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\handler_alloc_helpers.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\handler_cont_helpers.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\handler_invoke_helpers.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\handler_tracking.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\handler_type_requirements.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\handler_work.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\hash_map.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\buffer_sequence_adapter.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\descriptor_ops.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\dev_poll_reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\dev_poll_reactor.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\epoll_reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\epoll_reactor.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\eventfd_select_interrupter.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\handler_tracking.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\kqueue_reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\kqueue_reactor.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\null_event.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\pipe_select_interrupter.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\posix_event.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\posix_mutex.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\posix_thread.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\posix_tss_ptr.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\reactive_descriptor_service.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\reactive_serial_port_service.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\reactive_socket_service_base.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\resolver_service_base.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\scheduler.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\select_reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\select_reactor.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\service_registry.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\service_registry.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\signal_set_service.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\socket_ops.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\socket_select_interrupter.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\strand_executor_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\strand_executor_service.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\strand_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\strand_service.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\throw_error.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\timer_queue_ptime.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\timer_queue_set.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\winrt_ssocket_service_base.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\winrt_timer_scheduler.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\winrt_timer_scheduler.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\winsock_init.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_event.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_iocp_handle_service.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_iocp_io_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_iocp_io_context.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_iocp_serial_port_service.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_iocp_socket_service_base.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_mutex.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_object_handle_service.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_static_mutex.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_thread.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\impl\win_tss_ptr.ipp" />
+    <ClInclude Include="libraries\boost\asio\detail\io_control.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\io_object_impl.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\is_buffer_sequence.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\is_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\keyword_tss_ptr.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\kqueue_reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\limits.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\local_free_on_block_exit.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\macos_fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\memory.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\noncopyable.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\non_const_lvalue.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_event.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_global.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_signal_blocker.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_socket_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_static_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_thread.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\null_tss_ptr.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\object_pool.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\old_win_sdk_compat.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\operation.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\op_queue.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\pipe_select_interrupter.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\pop_options.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\posix_event.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\posix_fd_set_adapter.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\posix_global.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\posix_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\posix_signal_blocker.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\posix_static_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\posix_thread.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\posix_tss_ptr.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\push_options.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_descriptor_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_null_buffers_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_serial_port_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_socket_accept_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_socket_connect_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_socket_recvfrom_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_socket_recvmsg_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_socket_recv_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_socket_sendto_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_socket_send_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_socket_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_socket_service_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactive_wait_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactor_fwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactor_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\reactor_op_queue.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\recycling_allocator.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\regex_fwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\resolver_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\resolver_service_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\resolve_endpoint_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\resolve_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\resolve_query_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\scheduler.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\scheduler_operation.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\scheduler_thread_info.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\scoped_lock.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\scoped_ptr.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\select_interrupter.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\select_reactor.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\service_registry.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\signal_blocker.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\signal_handler.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\signal_init.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\signal_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\signal_set_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\socket_holder.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\socket_ops.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\socket_option.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\socket_select_interrupter.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\socket_types.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\solaris_fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\source_location.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\static_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\std_event.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\std_fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\std_global.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\std_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\std_static_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\std_thread.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\strand_executor_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\strand_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\string_view.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\thread.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\thread_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\thread_group.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\thread_info_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\throw_error.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\throw_exception.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\timer_queue.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\timer_queue_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\timer_queue_ptime.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\timer_queue_set.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\timer_scheduler.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\timer_scheduler_fwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\tss_ptr.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\type_traits.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\variadic_templates.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\wait_handler.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\wait_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winapp_thread.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\wince_thread.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_async_manager.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_async_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_resolver_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_resolve_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_socket_connect_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_socket_recv_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_socket_send_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_ssocket_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_ssocket_service_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_timer_scheduler.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winrt_utils.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\winsock_init.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_event.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_fd_set_adapter.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_fenced_block.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_global.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_handle_read_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_handle_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_handle_write_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_io_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_null_buffers_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_operation.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_overlapped_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_overlapped_ptr.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_serial_port_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_socket_accept_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_socket_connect_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_socket_recvfrom_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_socket_recvmsg_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_socket_recv_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_socket_send_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_socket_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_socket_service_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_thread_info.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_iocp_wait_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_object_handle_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_static_mutex.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_thread.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\win_tss_ptr.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\work_dispatcher.hpp" />
+    <ClInclude Include="libraries\boost\asio\detail\wrapped_handler.hpp" />
+    <ClInclude Include="libraries\boost\asio\dispatch.hpp" />
+    <ClInclude Include="libraries\boost\asio\error.hpp" />
+    <ClInclude Include="libraries\boost\asio\error_code.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\allocator.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\any_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\bad_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\blocking.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\blocking_adaptation.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\bulk_execute.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\bulk_guarantee.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\connect.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\context.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\context_as.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\detail\as_invocable.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\detail\as_operation.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\detail\as_receiver.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\detail\bulk_sender.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\detail\submit_receiver.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\detail\void_receiver.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\execute.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\impl\bad_executor.ipp" />
+    <ClInclude Include="libraries\boost\asio\execution\impl\receiver_invocation_error.ipp" />
+    <ClInclude Include="libraries\boost\asio\execution\invocable_archetype.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\mapping.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\occupancy.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\operation_state.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\outstanding_work.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\prefer_only.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\receiver.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\receiver_invocation_error.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\relationship.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\schedule.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\scheduler.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\sender.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\set_done.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\set_error.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\set_value.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\start.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution\submit.hpp" />
+    <ClInclude Include="libraries\boost\asio\execution_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\executor_work_guard.hpp" />
+    <ClInclude Include="libraries\boost\asio\experimental\as_single.hpp" />
+    <ClInclude Include="libraries\boost\asio\experimental\impl\as_single.hpp" />
+    <ClInclude Include="libraries\boost\asio\generic\basic_endpoint.hpp" />
+    <ClInclude Include="libraries\boost\asio\generic\datagram_protocol.hpp" />
+    <ClInclude Include="libraries\boost\asio\generic\detail\endpoint.hpp" />
+    <ClInclude Include="libraries\boost\asio\generic\detail\impl\endpoint.ipp" />
+    <ClInclude Include="libraries\boost\asio\generic\raw_protocol.hpp" />
+    <ClInclude Include="libraries\boost\asio\generic\seq_packet_protocol.hpp" />
+    <ClInclude Include="libraries\boost\asio\generic\stream_protocol.hpp" />
+    <ClInclude Include="libraries\boost\asio\handler_alloc_hook.hpp" />
+    <ClInclude Include="libraries\boost\asio\handler_continuation_hook.hpp" />
+    <ClInclude Include="libraries\boost\asio\handler_invoke_hook.hpp" />
+    <ClInclude Include="libraries\boost\asio\handler_type.hpp" />
+    <ClInclude Include="libraries\boost\asio\high_resolution_timer.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\awaitable.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\buffered_read_stream.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\buffered_write_stream.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\compose.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\connect.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\co_spawn.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\defer.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\detached.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\dispatch.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\error.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\error_code.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\execution_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\execution_context.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\executor.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\handler_alloc_hook.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\io_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\io_context.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\multiple_exceptions.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\post.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\read.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\read_at.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\read_until.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\redirect_error.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\serial_port_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\serial_port_base.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\spawn.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\src.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\system_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\system_context.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\system_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\thread_pool.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\thread_pool.ipp" />
+    <ClInclude Include="libraries\boost\asio\impl\use_awaitable.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\use_future.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\write.hpp" />
+    <ClInclude Include="libraries\boost\asio\impl\write_at.hpp" />
+    <ClInclude Include="libraries\boost\asio\io_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\io_context_strand.hpp" />
+    <ClInclude Include="libraries\boost\asio\io_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\io_service_strand.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\address.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\address_v4.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\address_v4_iterator.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\address_v4_range.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\address_v6.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\address_v6_iterator.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\address_v6_range.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\bad_address_cast.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\basic_endpoint.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\basic_resolver.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\basic_resolver_entry.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\basic_resolver_iterator.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\basic_resolver_query.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\basic_resolver_results.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\detail\endpoint.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\detail\impl\endpoint.ipp" />
+    <ClInclude Include="libraries\boost\asio\ip\detail\socket_option.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\host_name.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\icmp.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\address.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\address.ipp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\address_v4.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\address_v4.ipp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\address_v6.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\address_v6.ipp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\basic_endpoint.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\host_name.ipp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\network_v4.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\network_v4.ipp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\network_v6.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\impl\network_v6.ipp" />
+    <ClInclude Include="libraries\boost\asio\ip\multicast.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\network_v4.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\network_v6.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\resolver_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\resolver_query_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\resolver_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\tcp.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\udp.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\unicast.hpp" />
+    <ClInclude Include="libraries\boost\asio\ip\v6_only.hpp" />
+    <ClInclude Include="libraries\boost\asio\is_applicable_property.hpp" />
+    <ClInclude Include="libraries\boost\asio\is_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\is_read_buffered.hpp" />
+    <ClInclude Include="libraries\boost\asio\is_write_buffered.hpp" />
+    <ClInclude Include="libraries\boost\asio\local\basic_endpoint.hpp" />
+    <ClInclude Include="libraries\boost\asio\local\connect_pair.hpp" />
+    <ClInclude Include="libraries\boost\asio\local\datagram_protocol.hpp" />
+    <ClInclude Include="libraries\boost\asio\local\detail\endpoint.hpp" />
+    <ClInclude Include="libraries\boost\asio\local\detail\impl\endpoint.ipp" />
+    <ClInclude Include="libraries\boost\asio\local\stream_protocol.hpp" />
+    <ClInclude Include="libraries\boost\asio\multiple_exceptions.hpp" />
+    <ClInclude Include="libraries\boost\asio\packaged_task.hpp" />
+    <ClInclude Include="libraries\boost\asio\placeholders.hpp" />
+    <ClInclude Include="libraries\boost\asio\posix\basic_descriptor.hpp" />
+    <ClInclude Include="libraries\boost\asio\posix\basic_stream_descriptor.hpp" />
+    <ClInclude Include="libraries\boost\asio\posix\descriptor.hpp" />
+    <ClInclude Include="libraries\boost\asio\posix\descriptor_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\posix\stream_descriptor.hpp" />
+    <ClInclude Include="libraries\boost\asio\posix\stream_descriptor_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\post.hpp" />
+    <ClInclude Include="libraries\boost\asio\prefer.hpp" />
+    <ClInclude Include="libraries\boost\asio\query.hpp" />
+    <ClInclude Include="libraries\boost\asio\raw_socket_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\read.hpp" />
+    <ClInclude Include="libraries\boost\asio\read_at.hpp" />
+    <ClInclude Include="libraries\boost\asio\read_until.hpp" />
+    <ClInclude Include="libraries\boost\asio\redirect_error.hpp" />
+    <ClInclude Include="libraries\boost\asio\require.hpp" />
+    <ClInclude Include="libraries\boost\asio\require_concept.hpp" />
+    <ClInclude Include="libraries\boost\asio\seq_packet_socket_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\serial_port.hpp" />
+    <ClInclude Include="libraries\boost\asio\serial_port_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\serial_port_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\signal_set.hpp" />
+    <ClInclude Include="libraries\boost\asio\signal_set_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\socket_acceptor_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\socket_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\spawn.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\context.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\context_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\buffered_handshake_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\engine.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\handshake_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\impl\engine.ipp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\impl\openssl_init.ipp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\io.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\openssl_init.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\openssl_types.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\password_callback.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\read_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\shutdown_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\stream_core.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\verify_callback.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\detail\write_op.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\error.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\host_name_verification.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\impl\context.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\impl\context.ipp" />
+    <ClInclude Include="libraries\boost\asio\ssl\impl\error.ipp" />
+    <ClInclude Include="libraries\boost\asio\ssl\impl\host_name_verification.ipp" />
+    <ClInclude Include="libraries\boost\asio\ssl\impl\rfc2818_verification.ipp" />
+    <ClInclude Include="libraries\boost\asio\ssl\impl\src.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\rfc2818_verification.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\stream.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\stream_base.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\verify_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\ssl\verify_mode.hpp" />
+    <ClInclude Include="libraries\boost\asio\static_thread_pool.hpp" />
+    <ClInclude Include="libraries\boost\asio\steady_timer.hpp" />
+    <ClInclude Include="libraries\boost\asio\strand.hpp" />
+    <ClInclude Include="libraries\boost\asio\streambuf.hpp" />
+    <ClInclude Include="libraries\boost\asio\stream_socket_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\system_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\system_error.hpp" />
+    <ClInclude Include="libraries\boost\asio\system_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\system_timer.hpp" />
+    <ClInclude Include="libraries\boost\asio\this_coro.hpp" />
+    <ClInclude Include="libraries\boost\asio\thread.hpp" />
+    <ClInclude Include="libraries\boost\asio\thread_pool.hpp" />
+    <ClInclude Include="libraries\boost\asio\time_traits.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\bulk_execute_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\bulk_execute_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\connect_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\connect_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\equality_comparable.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\execute_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\execute_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\prefer_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\prefer_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\query_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\query_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\query_static_constexpr_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\require_concept_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\require_concept_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\require_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\require_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\schedule_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\schedule_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\set_done_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\set_done_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\set_error_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\set_error_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\set_value_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\set_value_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\start_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\start_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\static_query.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\static_require.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\static_require_concept.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\submit_free.hpp" />
+    <ClInclude Include="libraries\boost\asio\traits\submit_member.hpp" />
+    <ClInclude Include="libraries\boost\asio\ts\buffer.hpp" />
+    <ClInclude Include="libraries\boost\asio\ts\executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\ts\internet.hpp" />
+    <ClInclude Include="libraries\boost\asio\ts\io_context.hpp" />
+    <ClInclude Include="libraries\boost\asio\ts\net.hpp" />
+    <ClInclude Include="libraries\boost\asio\ts\netfwd.hpp" />
+    <ClInclude Include="libraries\boost\asio\ts\socket.hpp" />
+    <ClInclude Include="libraries\boost\asio\ts\timer.hpp" />
+    <ClInclude Include="libraries\boost\asio\unyield.hpp" />
+    <ClInclude Include="libraries\boost\asio\uses_executor.hpp" />
+    <ClInclude Include="libraries\boost\asio\use_awaitable.hpp" />
+    <ClInclude Include="libraries\boost\asio\use_future.hpp" />
+    <ClInclude Include="libraries\boost\asio\version.hpp" />
+    <ClInclude Include="libraries\boost\asio\waitable_timer_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\wait_traits.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\basic_handle.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\basic_object_handle.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\basic_overlapped_handle.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\basic_random_access_handle.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\basic_stream_handle.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\object_handle.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\object_handle_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\overlapped_handle.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\overlapped_ptr.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\random_access_handle.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\random_access_handle_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\stream_handle.hpp" />
+    <ClInclude Include="libraries\boost\asio\windows\stream_handle_service.hpp" />
+    <ClInclude Include="libraries\boost\asio\write.hpp" />
+    <ClInclude Include="libraries\boost\asio\write_at.hpp" />
+    <ClInclude Include="libraries\boost\asio\yield.hpp" />
+    <ClInclude Include="testPort.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="libraries\boost\asio\impl\src.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="testPort.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libraries\SFML-2.5.1\bin\openal32.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-audio-2.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-audio-d-2.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-graphics-2.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-graphics-d-2.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-network-2.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-network-d-2.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-system-2.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-system-d-2.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-window-2.dll" />
+    <None Include="libraries\SFML-2.5.1\bin\sfml-window-d-2.dll" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
