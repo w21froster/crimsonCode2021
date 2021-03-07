@@ -19,6 +19,6 @@
 ![alt text](https://raw.githubusercontent.com/w21froster/crimsonCode2021/main/screenshots.gif)
 
 ### Credits
-Zakiya Pruitt 
-Kyle Parker
-William Foster
+- Zakiya Pruitt 
+- Kyle Parker
+- William Foster
