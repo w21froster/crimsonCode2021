@@ -1,5 +1,8 @@
 # Crimson Code 2021
 ### Port Scanner for IPv4/IPv6
+
+### Libraries Used
+- Boost library (ASIO) https://www.boost.org/doc/libs/1_75_0/doc/html/boost_asio.html
 ### Features
 
 - Accepts IPv4 addresses and IPv6 addresses for targets
