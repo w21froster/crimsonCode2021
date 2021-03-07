@@ -1746,6 +1746,9 @@
     <ClInclude Include="libraries\boost\asio.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PortData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="testPort.cpp">
@@ -1755,6 +1758,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="libraries\boost\asio\impl\src.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Port Classes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PortData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1770,5 +1779,6 @@
     <None Include="libraries\SFML-2.5.1\bin\sfml-system-d-2.dll" />
     <None Include="libraries\SFML-2.5.1\bin\sfml-window-2.dll" />
     <None Include="libraries\SFML-2.5.1\bin\sfml-window-d-2.dll" />
+    <None Include="ports.csv" />
   </ItemGroup>
 </Project>

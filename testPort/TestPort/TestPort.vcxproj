@@ -722,11 +722,14 @@
     <ClInclude Include="libraries\boost\asio\write.hpp" />
     <ClInclude Include="libraries\boost\asio\write_at.hpp" />
     <ClInclude Include="libraries\boost\asio\yield.hpp" />
+    <ClInclude Include="PortData.hpp" />
     <ClInclude Include="testPort.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libraries\boost\asio\impl\src.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Port Classes.cpp" />
+    <ClCompile Include="PortData.cpp" />
     <ClCompile Include="testPort.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -741,6 +744,7 @@
     <None Include="libraries\SFML-2.5.1\bin\sfml-system-d-2.dll" />
     <None Include="libraries\SFML-2.5.1\bin\sfml-window-2.dll" />
     <None Include="libraries\SFML-2.5.1\bin\sfml-window-d-2.dll" />
+    <None Include="ports.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

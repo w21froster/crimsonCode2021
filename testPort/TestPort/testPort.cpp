@@ -9,15 +9,23 @@
 #include "testPort.h"
 
 // port state functions
-portState::portState(const int& newPort, const bool& newState, portState* nextPtr, portState* prevPtr) {
+portState::portState(const int& newPort, const bool& newState, std::string& newDescription, portState* nextPtr, portState* prevPtr) {
 	this->state = newState;
 	this->port = newPort;
 	this->mpNext = nextPtr;
 	this->mpPrev = prevPtr;
+	this->description = newDescription;
 }
 
-bool portState::getState() {
-	return this->state;
+std::string portState::getState() {
+	std::string open = "OPEN";
+	std::string closed = "CLOSED";
+	if (this->state) {
+		return open;
+	}
+	else {
+		return closed;
+	}
 };
 
 void portState::setState(bool& newState) {
@@ -44,13 +52,20 @@ portState* portState::getNextPtr() {
 	return this->mpNext;
 }
 
+void portState::setDescription(std::string& newDescription) {
+	this->description = newDescription;
+}
+
+std::string portState::getDescription() {
+	return this->description;
+}
 // host functions
 host::host(std::string newHostIP, portState* pNewHead) {
 	this->mpHead = pNewHead;
 	this->hostIP = newHostIP;
 }
 
-bool host::newPort(const int& port, const bool& connection_status) {
+bool host::newPort(const int& port, const bool& connection_status, std::string& description) {
 	bool allocation_success = false;
 	portState* pPrev = nullptr;
 
@@ -58,7 +73,7 @@ bool host::newPort(const int& port, const bool& connection_status) {
 	portState* pTemp = this->mpHead;
 	// create node to store status
 	portState* pMem = nullptr;
-	pMem = new portState(port, connection_status);
+	pMem = new portState(port, connection_status, description);
 
 	if (pMem != nullptr) {
 		allocation_success = true;
@@ -94,12 +109,13 @@ bool host::newPort(const int& port, const bool& connection_status) {
 				pTemp->setPrevPtr(pMem);
 			}
 		}
+		std::cout << "Port: " << pMem->getPort() << " State: " << pMem->getState() << " Description: " << pMem->getDescription() << std::endl;
 	}
 
 	return allocation_success;
 }
 
-bool host::testPort(const int& port) {
+bool host::testPort(const int& port, std::string& description) {
 	bool connection_status = false;
 	// convert raw string to IP address (can be v4 or v6)
 	asio::ip::address targetIP = asio::ip::address::from_string(hostIP);
@@ -119,17 +135,14 @@ bool host::testPort(const int& port) {
 		}
 	}
 	catch (std::system_error& e) {
-		std::cout << "Error occured! Error code = " << e.code()
-			<< ". Message: " << e.what();
+		//std::cout << "Error occured! Error code = " << e.code()
+		//	<< ". Message: " << e.what();
 		connection_status = false;
 	}
 
-
-
 	
 	// save in doubly linked list
-	newPort(port, connection_status);
-
+	newPort(port, connection_status, description);
 	return connection_status;
 }
 
