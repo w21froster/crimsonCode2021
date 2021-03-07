@@ -5,7 +5,7 @@
 //  Created by Kyle Parker on 3/6/21.
 //
 
-// NOTE: 'service-names-port-numbers.csv' downloaded from https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
+// NOTE: 'ports.csv' came from https://github.com/maraisr/ports-list/blob/master/all.csv
 
 #ifndef PortData_hpp
 #define PortData_hpp
@@ -78,14 +78,11 @@ protected:
 
 class PortCreationException: PortException {
 public:
-    PortCreationException(string description = "Port Creation Exception!") {
+    PortCreationException(string description, long lineNumber, string functionName) {
         this->data = Port();
         this->description = description;
-    }
-    
-    PortCreationException(Port& data, string description = "Failed to create port object") {
-        this->data = data;
-        this->description = description;
+        this->lineNumber = lineNumber;
+        this->functionName = functionName;
     }
     
     friend std::ostream& operator<< (std::ostream& lhs, const PortCreationException& rhs) {
@@ -95,14 +92,11 @@ public:
 
 class PortVerifcationException: PortException {
 public:
-    PortVerifcationException(string description = "Port failed to verify the integergty! (NO DATA PROVIDED)") {
-        this->data = Port();
-        this->description = description;
-    }
-    
-    PortVerifcationException(Port& data, string description = "Port failed to verify the integergty of the port with the data!") {
+    PortVerifcationException(Port& data, string description, long lineNumber, string functionName) {
         this->data = data;
         this->description = description;
+        this->lineNumber = lineNumber;
+        this->functionName = functionName;
     }
     
     friend std::ostream& operator<< (std::ostream& lhs, const PortVerifcationException& rhs) {
@@ -124,9 +118,9 @@ class PortData {
     
     bool verifyData(Port& port) {
         if (port.getNumber() == (unsigned int)-1) {
-            throw PortVerifcationException(port, "Invalid number detected! Value must not be -1!");
+            throw PortVerifcationException(port, "Invalid number detected! Value must not be -1!", __LINE__, __PRETTY_FUNCTION__);
         } else if (port.getServiceName() == "") {
-            throw PortVerifcationException(port, "Invalid service name detected! Value must not be ''!");
+            throw PortVerifcationException(port, "Invalid service name detected! Value must not be ''!", __LINE__, __PRETTY_FUNCTION__);
         }
         return true;
     }
@@ -138,9 +132,9 @@ class PortData {
         string line;
         
         if (!file.is_open()) {
-            
-            throw PortCreationException("Could not open file!");
+            throw PortCreationException("Could not open file!", __LINE__, __PRETTY_FUNCTION__);
         }
+        
         while (getline(file, line)) {
             if (line.find("protocol") != string::npos && line.find("port") != string::npos && line.find("description") != string::npos) { continue; }
             
