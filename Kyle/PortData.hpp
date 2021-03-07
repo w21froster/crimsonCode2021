@@ -181,6 +181,15 @@ public:
         }
     }
     
+    vector<string> getKeys() {
+        vector<string> keys = {};
+        keys.reserve(PortData::data.size());
+        for (auto kv: PortData::data) {
+            keys.push_back(kv.first);
+        }
+        return keys;
+    }
+    
     // static declarations
     static unordered_map<string, Port*> data;
 };
