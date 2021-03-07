@@ -173,6 +173,14 @@ public:
     
     ~PortData() { }
     
+    string getDescription(string port) {
+        if (PortData::data.find(port) == PortData::data.end()) {
+            return "DNE";
+        } else {
+            return PortData::data.find(port)->second->getServiceName();
+        }
+    }
+    
     // static declarations
     static unordered_map<string, Port*> data;
 };
