@@ -12,6 +12,12 @@
 - Scan against a list of wellknown ports or input a custom port
 - TCP only as of now
 
+### Build Instructions
+
+- Clone the repository
+- Navigate to testPort/testPort
+- Build from solution file testPort.sln (VS19)
+
 ### To Do
 | Feature  | Status  |
 | ------------ | ------------ |
