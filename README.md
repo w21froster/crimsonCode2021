@@ -2,7 +2,7 @@
 ### Port Scanner for IPv4/IPv6
 
 ### Preface
-- In the era of COVID-19, more people than ever are working from home and accessing their companie's network remotely. Network Administrators are hastily implementing VPNs and firewall rules to allow their company's employees to login. This is perfect for productivity, but what about security? What happens when the wrong SSH port gets exposed to the internet? This is where our port scanner comes into focus. We can scan any target with an IPv4/IPv6 address and tell you which ports are open. This helps make informed decisions about the security of your PC or network in this connected world.
+- In the era of COVID-19, more people than ever are working from home and accessing their company's network remotely. Network Administrators are hastily implementing VPNs and firewall rules to allow their company's employees to login. This is perfect for productivity, but what about security? What happens when the wrong SSH port gets exposed to the internet? This is where our port scanner comes into focus. We can scan any target with an IPv4/IPv6 address and tell you which ports are open. This helps make informed decisions about the security of your PC or network in this connected world.
 
 ### Libraries Used
 - Boost library (ASIO) https://www.boost.org/doc/libs/1_75_0/doc/html/boost_asio.html
